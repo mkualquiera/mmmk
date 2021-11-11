@@ -25,8 +25,7 @@ def get_episode_data():
         episode["images"] = []
         for image_file in os.listdir(os.path.join(DATA_DIR, episode_folder, 
                                                 'images')):
-            episode["images"].append(os.path.join(DATA_DIR, episode_folder, 
-                                    'images', image_file))
+            episode["images"].append(image_file)
         episodes.append(episode)
 
     return episodes
