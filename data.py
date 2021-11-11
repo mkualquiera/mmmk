@@ -20,13 +20,6 @@ def get_episode_data():
         # meta.yaml is the file that contains the episode metadata
         with open(os.path.join(DATA_DIR, episode_folder, 'meta.yaml')) as f:
             episode.update(load(f, Loader=FullLoader))
-        # all image files are in the images folder
-        # they should be sorted by number
-        episode["images"] = []
-        for image_file in os.listdir(os.path.join(DATA_DIR, episode_folder, 
-                                                'images')):
-            episode["images"].append(image_file)
-        episodes.append(episode)
 
     return episodes
 
