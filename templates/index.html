@@ -7,6 +7,11 @@
         <meta name="description" content="mmmk webcomic">
         <meta name="author" content="mkualquiera">
         <link rel="icon" href="../../favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> 
+        <!-- style -->
+        <link href="/static/style.css" rel="stylesheet">
 
         <title>mmmk</title>
     </head>
@@ -14,9 +19,9 @@
         <h1>mmmk</h1>
         <div>
             {% for episode in episode_data %}
-            <a href="/episodes/{{ episode['number'] }}">
+            <a href="/episode/{{ episode['number'] }}">
                 {{ episode['number'] }} - {{ episode['title'] }}
-            </a>
+            </a><br>
             {% endfor %}
         </div>
     </body>

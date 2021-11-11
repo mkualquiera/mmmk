@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="mmmk webcomic">
+        <meta name="author" content="mkualquiera">
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+            type="application/javascript"></script>
+        <link rel="icon" href="../../favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> 
+        <link href="/static/style.css" rel="stylesheet">
+
+        <title>mmmk: {{ episode_data["title"] }}</title>
+    </head>
+    <body>
+        <h1>
+            <a href="/">mmmk</a>
+        </h1>
+        <div>
+            <a href="/first">|<</a>
+            <a href="{{episode_data['number']}}/prev"><</a>
+            <a href="/random">random</a>
+            <a href="{{episode_data['number']}}/next">></a>
+            <a href="/last">>|</a>
+        </div>
+        <h2> 
+            {{ episode_data["title"] }}
+        </h2>
+        <p>
+            {{ episode_data["description"] }}
+        </p>
+        <div>
+            {% for image in episode_images %}
+                <img src="/files/images/{{episode_data['number']}}/{{image}}"/>
+                <br>
+            {% endfor %}
+        </div>
+        <p>
+            Written on {{ episode_data["when_written"] }}
+        </p>
+        <div>
+            <a href="/first">|<</a>
+            <a href="{{episode_data['number']}}/prev"><</a>
+            <a href="/random">random</a>
+            <a href="{{episode_data['number']}}/next">></a>
+            <a href="/last">>|</a>
+        </div>
+        <h3>Comments</h3>
+        <div>
+            <div>
+                <textarea id="comment" rows="4" cols="50"></textarea>
+                <button type="button" id="anonymous_comment" 
+                    onclick="comment()">
+                    Post comment
+                </button>
+            </div>
+            {% if episode_comments|length %}
+                {% for comment in episode_comments %}
+                <div class="comment">
+                    <h4>
+                        {{ comment["nickname"] + "#" + comment["address"][0:7] }} ({{ comment["time_str"] }})
+                    </h4>
+                    {{ comment["text"] }} <br>
+                    <div class="signature">
+                        {{ comment["_id"] }} <br>
+                        {{ comment["signed"]}} <br>
+                        {{ comment["signature"] }}
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>
+                    No comments yet.
+                </p>
+            {% endif %}
+        </div>
+    <script src="/static/episode.js"></script>
+    </body>
+</html>

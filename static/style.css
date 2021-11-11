@@ -1,0 +1,37 @@
+html {
+    background-color: #232323;
+    color: #e1e1e1;
+    font-family: 'Fira Code', monospace;
+    word-wrap: break-word;
+}
+
+a {
+    color: #27c08d;
+}
+
+textarea {
+    background-color: #232323;
+    color: #e1e1e1;
+    border: 1px solid #27c08d;
+    font-family: 'Fira Code', monospace;
+}
+
+h4 {
+    color: #bb2f8a;
+    margin-top: 4px;
+}
+
+.comment {
+    border: 1px solid #303030;
+}
+
+button {
+    background-color: #303030;
+    border: 1px solid #27c08d;
+    color: #e1e1e1;
+    font-family: 'Fira Code', monospace;
+}
+
+.signature {
+    opacity: 0.2;
+}
