@@ -178,4 +178,4 @@ async def websocket_endpoint():
             "Unable to verify the message signature"}))
 
             
-app.run(debug=True, port=81)
+app.run("0.0.0.0", debug=True, port=81)
