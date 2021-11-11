@@ -35,3 +35,7 @@ button {
 .signature {
     opacity: 0.2;
 }
+
+img {
+    max-width: 100%;
+}
