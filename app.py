@@ -1,8 +1,9 @@
 # import quart stuff 
 
-from quart import Quart, render_template, url_for, escape, send_from_directory, websocket, redirect, request, jsonify, Response
+from quart import Quart, render_template, url_for, escape, send_from_directory, websocket, redirect, request, jsonify, Response, make_response
 
 from bson import json_util
+from feedgen.feed import FeedGenerator
 
 from eth_account.messages import encode_defunct
 from web3.auto import w3
@@ -177,5 +178,24 @@ async def websocket_endpoint():
         await websocket.send(json_util.dumps({'type': 'posted', 'error':
             "Unable to verify the message signature"}))
 
+@app.route('/rss')
+async def rss():
+    fg = FeedGenerator()
+    fg.title("mmmk")
+    fg.description("mmmk: the webcomic by mkualquiera")
+    fg.link(href="http://mmmk.huestudios.xyz/")
+
+    for episode in data.get_all_episodes_data():
+        fe = fg.add_entry()
+        fe.title(episode['title'])
+        fe.guid(episode['number'])
+        fe.link(href=f"http://mmmk.huestudios.xyz/episode/{episode['number']}")
+        fe.description(f"{episode['description']}")
+        fe.pubdate(episode['when_written'])
+        fe.author(name='mkualquiera',email='ozjuanpa@gmail.com')
+
+    response = make_response(fg.rss_str(pretty=True))
+    response.headers.set('Content-Type','application/rss+xml')
+    return response
             
 app.run("0.0.0.0", debug=True, port=81)
