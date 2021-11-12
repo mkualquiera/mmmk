@@ -192,6 +192,7 @@ async def rss():
         fe.title(episode['title'])
         fe.guid(episode['number'], permalink=True)
         fe.link(href=f"http://mmmk.huestudios.xyz/episode/{episode['number']}")
+        fe.content(src=episode['description'])
         fe.description(f"{episode['description']}")
         fe.pubDate(episode['when_written'])
         fe.author(name='mkualquiera',email='ozjuanpa@gmail.com')
