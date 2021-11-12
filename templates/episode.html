@@ -24,14 +24,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>mmmk: {{ episode_data["title"] }}</title>
-        <meta name="description" content="{{ episode_data['description']}}">
-        <meta name="author" content="mkualquiera">
-        <meta property="og:title" content="{{ episode_data['title']}}">
-        <meta property="og:site_name" content="mmmk">
-        <meta property="og:image" content="{{ episode_images[0] }}">
-        <meta property="og:description" content="{{ episode_data['description']}}">
-
 
         <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
             type="application/javascript"></script>
@@ -41,7 +33,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> 
         <link href="/static/style.css" rel="stylesheet">
 
-        
+        <title>mmmk: {{ episode_data["title"] }}</title>
+        <meta name="description" content="{{ episode_data['description']}}">
+        <meta name="author" content="mkualquiera">
+        <meta property="og:title" content="{{ episode_data['title']}}">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="mmmk.huestudios.xyz/episode/{{ episode_data['number']}}">
+        <meta property="og:site_name" content="mmmk">
+        <meta property="og:image" content="mmmk.huestudios.xyz/files/images/{{episode_data['number']}}/{{episode_images[0]}}">
+        <meta property="og:description" content="{{ episode_data['description']}}">
     </head>
     <body>
         <h1>
