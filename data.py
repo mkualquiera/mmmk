@@ -37,6 +37,9 @@ def get_all_episodes_data():
     for episode_folder in os.listdir(DATA_DIR):
         episode = get_episode_data(episode_folder)
         episodes.append(episode)
+    
+    # sort by number
+    episodes.sort(key=lambda x: x["number"])
 
     return episodes
 
