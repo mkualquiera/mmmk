@@ -194,7 +194,7 @@ async def rss():
         fe.pubDate(episode['when_written'])
         fe.author(name='mkualquiera',email='ozjuanpa@gmail.com')
 
-    response = make_response(fg.rss_str(pretty=True))
+    response = await make_response(fg.rss_str(pretty=True))
     response.headers.set('Content-Type','application/rss+xml')
     return response
             
