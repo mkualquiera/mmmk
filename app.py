@@ -184,11 +184,13 @@ async def rss():
     fg.title("mmmk")
     fg.description("mmmk: the webcomic by mkualquiera")
     fg.link(href="http://mmmk.huestudios.xyz/")
+    fg.logo("http://mmmk.huestudios.xyz/static/android-icon-192x192.png")
+    fg.language("en")
 
     for episode in data.get_all_episodes_data():
         fe = fg.add_entry()
         fe.title(episode['title'])
-        fe.guid(episode['number'])
+        fe.guid(episode['number'], permalink=True)
         fe.link(href=f"http://mmmk.huestudios.xyz/episode/{episode['number']}")
         fe.description(f"{episode['description']}")
         fe.pubDate(episode['when_written'])
