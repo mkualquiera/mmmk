@@ -191,7 +191,7 @@ async def rss():
         fe.guid(episode['number'])
         fe.link(href=f"http://mmmk.huestudios.xyz/episode/{episode['number']}")
         fe.description(f"{episode['description']}")
-        fe.pubdate(episode['when_written'])
+        fe.pubDate(episode['when_written'])
         fe.author(name='mkualquiera',email='ozjuanpa@gmail.com')
 
     response = make_response(fg.rss_str(pretty=True))
