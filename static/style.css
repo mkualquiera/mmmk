@@ -14,6 +14,7 @@ textarea {
     color: #e1e1e1;
     border: 1px solid #27c08d;
     font-family: 'Fira Code', monospace;
+    max-width: 100%;
 }
 
 h4 {
