@@ -1,7 +1,13 @@
 services:
+  mongodb-mmmk:
+    image: mongo:latest
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "127.0.0.1:27017:27017"
   mmmk:
-    build: .
+    build: mmmk
     ports:
       - "8000:8000"
     environment:
-      MONGO_URI: ${MONGO_URI}
+      MONGO_URI: mongodb://mongodb:27017
