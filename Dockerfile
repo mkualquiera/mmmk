@@ -1,7 +1,5 @@
 FROM python:3.10
 
-RUN git pull
-
 RUN mkdir /app
 WORKDIR /app
 
