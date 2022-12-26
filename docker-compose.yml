@@ -2,7 +2,7 @@ services:
   mongodb-mmmk:
     image: mongo:latest
     volumes:
-      - ./data:/data/db
+      - ./mongo_data:/data/db
     ports:
       - "127.0.0.1:27017:27017"
   mmmk:

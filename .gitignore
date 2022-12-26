@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 venv
+mongo_data
 
 # C extensions
 *.so
