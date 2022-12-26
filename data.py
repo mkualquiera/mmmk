@@ -7,7 +7,7 @@ from yaml import load, dump, FullLoader
 import os
 
 # connect to the database
-CLIENT = MongoClient()
+CLIENT = MongoClient(os.environ["MONGO_URI"])
 
 # Make sure to get path relative to this file
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")

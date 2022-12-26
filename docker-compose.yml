@@ -1,0 +1,7 @@
+services:
+  mmmk:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_URI: ${MONGO_URI}
